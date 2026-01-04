@@ -92,11 +92,13 @@ const characters = [
   "/",
 ];
 
-const div1 = document.querySelector(".pswrd1");
-const div2 = document.querySelector(".pswrd2");
+const firstPassword = document.querySelector(".first-password");
+const secondPassword = document.querySelector(".second-password");
 const button = document.querySelector("button");
 const value = document.getElementById("value");
 const input = document.getElementById("lenght");
+const container = document.querySelector(".container");
+
 value.textContent = input.value;
 input.addEventListener("input", (e) => {
   value.textContent = e.target.value;
@@ -105,21 +107,30 @@ input.addEventListener("input", (e) => {
 function generatePassword() {
   let n = input.value;
   value.textContent = n;
-  div1.textContent = "";
-  div2.textContent = "";
+  firstPassword.textContent = "";
+  secondPassword.textContent = "";
   for (let i = 0; i < n; i++) {
     let randomIndex1 = Math.floor(Math.random() * characters.length);
     let randomIndex2 = Math.floor(Math.random() * characters.length);
 
-    div1.textContent += characters[randomIndex1];
-    div2.textContent += characters[randomIndex2];
+    firstPassword.textContent += characters[randomIndex1];
+    secondPassword.textContent += characters[randomIndex2];
   }
 }
 
 button.addEventListener("click", generatePassword);
 
-div1.addEventListener("click", () => {
-  let content = div1.textContent;
+const passwords = document.querySelectorAll(".password");
 
-  navigator.clipboard.writeText(content);
+passwords.forEach((e) => {
+  e.addEventListener("click", () => {
+    navigator.clipboard.writeText(e.textContent);
+
+    const para = document.createElement("p");
+    para.textContent = "Copied to Clipboard";
+    container.appendChild(para);
+    setTimeout(() => {
+      para.remove();
+    }, 2000);
+  });
 });
