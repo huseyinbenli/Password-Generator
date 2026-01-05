@@ -98,10 +98,22 @@ const button = document.querySelector("button");
 const value = document.getElementById("value");
 const input = document.getElementById("lenght");
 const container = document.querySelector(".container");
+const para = document.querySelector(".para");
+para.textContent = "Moderate";
+const clipboardPara = document.querySelector(".clipboard");
 
 value.textContent = input.value;
 input.addEventListener("input", (e) => {
   value.textContent = e.target.value;
+  let lenght = e.target.value;
+
+  if (lenght < 8) {
+    para.textContent = "You should have minimum 8 characters";
+  } else if (lenght < 11) {
+    para.textContent = "Moderate";
+  } else {
+    para.textContent = "Strong";
+  }
 });
 
 function generatePassword() {
@@ -124,13 +136,14 @@ const passwords = document.querySelectorAll(".password");
 
 passwords.forEach((e) => {
   e.addEventListener("click", () => {
+    if (e.textContent === "") {
+      return;
+    }
     navigator.clipboard.writeText(e.textContent);
 
-    const para = document.createElement("p");
-    para.textContent = "Copied to Clipboard";
-    container.appendChild(para);
+    clipboardPara.textContent = "Copied to Clipboard";
     setTimeout(() => {
-      para.remove();
+      clipboardPara.textContent = "";
     }, 2000);
   });
 });
