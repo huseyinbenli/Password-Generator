@@ -3,20 +3,32 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="style.css" />
     <title>Password Generator</title>
   </head>
   <body>
     <div class="container">
-      <h1 class="header">Generate a <span> random password </span></h1>
-      <p>Never use an insecure password again.</p>
+      <h1 class="header">
+        Generate <span>strong, secure</span> <span> random passwords </span>
+      </h1>
+      <p>
+        Instantly generate random passwords <br />to protect your accounts
+        online.
+      </p>
       <button>Generate Passwords</button>
 
-      <div>
+      <div class="input-div">
         <label for="lenght"
           >Password Lenght : <output id="value"></output
         ></label>
         <input type="range" id="lenght" name="lenght" min="5" max="15" />
+        <p class="para"></p>
       </div>
 
       <div class="line"></div>
@@ -25,6 +37,8 @@
         <div class="first-password password"></div>
         <div class="second-password password"></div>
       </div>
+
+      <p class="clipboard"></p>
     </div>
     <script src="script.js"></script>
   </body>
