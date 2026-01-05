@@ -1,39 +1,42 @@
 body {
   margin: 0;
-  background-color: #1f2937;
-  color: white;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background-color: #021300;
+  color: whitesmoke;
+  font-family: "Share Tech Mono", monospace;
 }
 
 .header {
   margin-bottom: 0;
+  font-size: 3rem;
 }
 
 div {
-  padding: 2rem;
+  padding: 1rem;
 }
 
 .line {
-  padding: 1rem;
-  margin: auto;
+  margin: 0 auto 1rem;
+  padding: 0;
   width: 400px;
   border-bottom: 1px solid #2f3e53;
 }
 
 span {
-  color: #4adf86;
+  color: #4ca633;
   display: block;
+  font-weight: 900;
 }
 
 button {
   width: 190px;
   height: 45px;
   border-radius: 5px;
-  background-color: #4adf86;
-  color: white;
+  background-color: #4ca633;
+  color: whitesmoke;
   border: none;
   margin-top: 2rem;
   cursor: pointer;
+  font-size: 1rem;
 }
 
 .password-container {
@@ -42,12 +45,14 @@ button {
 
 .password {
   width: 175px;
-  background-color: #273549;
+  height: 40px;
+  background-color: #022601;
   margin: 0 2rem;
   border-radius: 5px;
-  color: #4adf86;
+  color: whitesmoke;
   cursor: pointer;
   text-align: center;
+  align-content: center;
 }
 
 .container {
@@ -58,7 +63,22 @@ button {
   align-items: center;
 }
 
+.input-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 input {
   display: block;
   margin: 2rem 0;
+}
+
+@media (width < 650px) {
+  .password-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
 }
